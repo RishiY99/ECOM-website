@@ -1,0 +1,141 @@
+<div class="checkout-container">
+    <!-- 
+        🚀 SIGNAL IN TEMPLATE: Reading signal value
+        OLD WAY: {{message}} ← Direct property access
+        NEW WAY: {{message()}} ← Call signal as function to get value
+        Angular automatically subscribes to signal changes and updates the DOM
+    -->
+    <p>{{message()}}</p>
+
+    <div class="checkout-content">
+
+        <!-- Left Side - Form -->
+        <div class="checkout-form">
+            <h3>Checkout</h3>
+
+            <!-- 
+                Reactive Form Setup:
+                - [formGroup]="checkoutForm" binds the form to the FormGroup instance in the component
+                - (ngSubmit) event fires when the form is submitted (button click or Enter key)
+                - No need to pass form values as parameter since we access them via checkoutForm.value
+            -->
+            <form [formGroup]="checkoutForm" (ngSubmit)="placeOrder()">
+
+                <!-- Full Name Field -->
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <!-- 
+                        formControlName="name" binds this input to the 'name' FormControl
+                        This creates two-way binding between the input and the form control
+                        Validation is handled by the FormControl validators in the component
+                    -->
+                    <input type="text" id="name" formControlName="name" placeholder="Enter your name">
+
+                    <!-- 
+                        Display validation error if:
+                        1. The 'name' control is invalid (fails required validator)
+                        2. The control has been touched (user interacted with it)
+                    -->
+                    <span class="error" *ngIf="checkoutForm.get('name')?.invalid && checkoutForm.get('name')?.touched">
+                        Name is required
+                    </span>
+                </div>
+
+                <!-- Email Address Field -->
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <!-- 
+                        formControlName="email" binds to the 'email' FormControl
+                        Validators: required and email format validation
+                    -->
+                    <input type="email" id="email" formControlName="email" placeholder="Enter your email">
+
+                    <!-- Show error if email is required but empty -->
+                    <span class="error"
+                        *ngIf="checkoutForm.get('email')?.hasError('required') && checkoutForm.get('email')?.touched">
+                        Email is required
+                    </span>
+
+                    <!-- Show error if email format is invalid -->
+                    <span class="error"
+                        *ngIf="checkoutForm.get('email')?.hasError('email') && checkoutForm.get('email')?.touched">
+                        Please enter a valid email
+                    </span>
+                </div>
+
+                <!-- Phone Number Field -->
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <!-- 
+                        formControlName="phone" binds to the 'phone' FormControl
+                        type="tel" provides appropriate mobile keyboard on mobile devices
+                    -->
+                    <input type="tel" id="phone" formControlName="phone" placeholder="Enter your phone number">
+
+                    <!-- Display error if phone field is empty and touched -->
+                    <span class="error"
+                        *ngIf="checkoutForm.get('phone')?.invalid && checkoutForm.get('phone')?.touched">
+                        Phone number is required
+                    </span>
+                </div>
+
+                <!-- Delivery Address Field -->
+                <div class="form-group">
+                    <label for="address">Delivery Address</label>
+                    <!-- 
+                        formControlName="address" binds to the 'address' FormControl
+                        textarea allows multi-line input for complete address
+                        rows="3" sets the initial height of the textarea
+                    -->
+                    <textarea id="address" formControlName="address" placeholder="Enter your complete address" rows="3">
+                    </textarea>
+
+                    <!-- Display error if address is empty and touched -->
+                    <span class="error"
+                        *ngIf="checkoutForm.get('address')?.invalid && checkoutForm.get('address')?.touched">
+                        Delivery address is required
+                    </span>
+                </div>
+
+                <!-- 
+                    Submit Button:
+                    - type="submit" triggers the form's (ngSubmit) event
+                    - Button is disabled if the form is invalid (checkoutForm.invalid)
+                    - This prevents submission of incomplete/invalid data
+                -->
+                <button type="submit" class="checkout-btn">
+                    Place Order
+                </button>
+            </form>
+        </div>
+
+        <!-- Right Side - Order Summary -->
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <div class="summary-content">
+                <div class="summary-item">
+                    <span>Price</span>
+                    <!-- 
+                        🚀 SIGNAL IN TEMPLATE: Display price
+                        OLD WAY: {{price}} ← Direct property
+                        NEW WAY: {{price()}} ← Signal function call
+                    -->
+                    <span>{{price()}}</span>
+                </div>
+
+                <!-- 
+                    🎯 BONUS: COMPUTED SIGNAL DEMO
+                    formattedPrice is a computed signal that automatically:
+                    1. Reads this.price() signal
+                    2. Formats it as currency (₹XXX.XX)
+                    3. Updates automatically when price changes
+                    No manual calculation needed!
+                -->
+                <div class="summary-item">
+                    <span>Formatted Price</span>
+                    <span style="color: #4CAF50; font-weight: bold;">{{formattedPrice()}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+table {
+    width: 100%;
+    text-align: left;
+    color: black;
+    border-collapse: collapse;
+}
+
+table td,
+table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    min-width: 160px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+fa-icon {
+    cursor: pointer;
+    color: #dc3545;
+    font-size: 18px;
+    transition: all 0.2s ease;
+}
+
+fa-icon:hover {
+    color: #c82333;
+    transform: scale(1.2);
+}

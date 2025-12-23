@@ -1,0 +1,19 @@
+.row-search-item {
+    margin: 25px auto;
+    width: 800px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+
+img {
+    width: 100px;
+    object-fit: contain;
+    height: 150px;
+}
+
+h6 {
+    font-size: 24px;
+    color: black;
+}

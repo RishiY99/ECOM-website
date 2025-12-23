@@ -1,0 +1,43 @@
+<header class="header">
+  <div class="header-container">
+    <!-- Left: Logo + Company Name -->
+    <div class="logo-section">
+      <!--<img src="logo.png" alt="Logo" class="logo" />-->
+      <a routerLink="" class="company-name">Ecom</a>
+    </div>
+    <!-- Middle: Search Bar -->
+    <div *ngIf="menuType !=='seller' " class="search-section">
+      <input type="text" #searchinput (keyup)="searchProduct($event)" (blur)=hidesearch()
+        placeholder="Search products..." class="search-input" />
+      <button (click)="submitsearch(searchinput.value)" class="search-btn">Search</button>
+      <ul class="suggested-result" *ngIf="searchresult">
+        <li *ngFor="let item of searchresult">
+          <a (mousedown)=redirectTo(item.id)>{{item.name}}</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Right: Navigation -->
+    <div [ngSwitch]="menuType">
+      <nav *ngSwitchCase="'default'" class="nav-links">
+        <a routerLink="">Home</a>
+        <a routerLink="/seller-auth">Seller</a>
+        <a routerLink="/userauth">Login/SignUp</a>
+        <a>Cart ({{cartItems}})</a>
+      </nav>
+      <nav *ngSwitchCase="'user'" class="nav-links">
+        <a routerLink="">Home</a>
+        <a href=""> {{username | titlecase}}</a>
+        <a routerLink="myorders"> My orders</a>
+        <a [routerLink]="cartItems>0?'cart':'/'"> Cart({{cartItems}})</a>
+        <a (click)="signout()">SignOut</a>
+      </nav>
+      <nav *ngSwitchCase="'seller'" class="nav-links">
+        <a routerLink="/seller-add-product">Add Product</a>
+        <a routerLink='/seller-home'>Product-List</a>
+        <a>{{sellerName | titlecase}}</a>
+        <a (click)=logout()>Logout</a>
+
+      </nav>
+    </div>
+  </div>
+</header>

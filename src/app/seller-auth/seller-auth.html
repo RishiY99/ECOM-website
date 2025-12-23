@@ -1,0 +1,28 @@
+<!-- Sign Up Form -->
+<div *ngIf="!showlogin">
+  <h2 class="Signup">Seller Sign Up</h2>
+  <form [formGroup]="signupform" (ngSubmit)="signUp()">
+    <input type="text" formControlName="name" placeholder="Name" />
+    <input type="email" formControlName="email" placeholder="Email" />
+    <input type="password" formControlName="password" placeholder="Password" />
+    <button type="submit">Sign Up</button>
+    <a class="authflip" (click)="openLogin()">Already have an account? click here to LogIn</a>
+  </form>
+</div>
+
+<!-- Login Form -->
+<div *ngIf="showlogin">
+  <h2 class="Signup">Seller Login</h2>
+
+  <!-- Error Message Display -->
+  <div *ngIf="authError" class="error-message">
+    {{ authError }}
+  </div>
+
+  <form [formGroup]="loginform" (ngSubmit)="login()">
+    <input type="email" formControlName="email" placeholder="Email" />
+    <input type="password" formControlName="password" placeholder="Password" />
+    <button type="submit">Login</button>
+    <a class="authflip" (click)="openSignUp()">Don't have an account? click here to SignUp</a>
+  </form>
+</div>

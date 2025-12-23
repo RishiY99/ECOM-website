@@ -1,0 +1,25 @@
+<div *ngIf="!userstate">
+    <form #userSignup="ngForm" (ngSubmit)="usersignUp(userSignup.value)">
+        <h2 class="Signup">User Sign Up</h2>
+        <input type="text" ngModel name="name" placeholder="User Name" required #name=ngModel />
+        <input type="email" ngModel name="email" placeholder="Email" required #email=ngModel />
+        <input type="password" ngModel name="password" placeholder="Password" required #password=ngModel />
+        <button [disabled]="userSignup.invalid" type="submit">Signup</button>
+        <p class="link">Alrady have an account <a (click)=openLogin()>Click here</a></p>
+    </form>
+</div>
+
+<div *ngIf="userstate">
+    <form #userLogin="ngForm" (ngSubmit)="userlogin(userLogin.value)">
+        <h2 class="Login">User Login</h2>
+        <p><span class="error-popup">{{invaliduser}}</span></p>
+        <input type="email" ngModel name="email" placeholder="Email" required #email="ngModel" minlength="5" />
+        <p><span class="error-popup" *ngIf="email.invalid && email.touched"> Please Enter a valid value</span></p>
+        <input type="password" ngModel name="password" placeholder="Password" required #password="ngModel"
+            minlength="5" />
+        <p><span class="error-popup" *ngIf="password.invalid && password.touched">Please enter a valid password</span>
+        </p>
+        <button [disabled]="userLogin.invalid" type="submit">Login</button>
+        <p class="link">Dont have an account <a (click)=opensignup()>Click here</a></p>
+    </form>
+</div>

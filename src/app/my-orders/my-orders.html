@@ -1,0 +1,39 @@
+<div class="myorders">
+    <h1>My Orders</h1>
+    <div class=" row">
+        <div class="col-sm-2">
+            <span>Orders</span>
+        </div>
+        <div class="col-sm-2">
+            <span>Order ID</span>
+        </div>
+        <div class="col-sm-2">
+            <span>Order Status</span>
+        </div>
+        <div class="col-sm-2">
+            <span>Invoice</span>
+        </div>
+        <div class="col-sm-2">
+            <span>Actions</span>
+        </div>
+    </div>
+    <div class="orderdetials">
+        <div class="row" *ngFor="let items of cartitmes">
+            <div class="col-sm-2">
+                <span><img src="" alt=""></span>
+            </div>
+            <div class="col-sm-2">
+                <span>{{items.id}}</span>
+            </div>
+            <div class="col-sm-2">
+                <span>In Progress</span>
+            </div>
+            <div class="col-sm-2">
+                <span>{{items.total}}</span>
+            </div>
+            <div class="col-sm-2">
+                <span><button (click)="deleteorder(items.id)">Cancel</button></span>
+            </div>
+        </div>
+    </div>
+</div>

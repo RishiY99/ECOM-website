@@ -1,0 +1,69 @@
+/* Container */
+.myorders {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* Page Title */
+.myorders h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 15px;
+}
+
+/* Grid Layout */
+.row {
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.col-sm-2 {
+    flex: 1;
+    text-align: center;
+}
+
+/* Header Row */
+.myorders>.row {
+    background: #007bff;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px 8px 0 0;
+    border-bottom: none;
+}
+
+/* Order Details */
+.orderdetials {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 0 0 8px 8px;
+}
+
+.orderdetials .row:hover {
+    background: #f8f9fa;
+}
+
+.orderdetials img {
+    max-width: 60px;
+    border-radius: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .col-sm-2 {
+        text-align: left;
+        padding: 8px 0;
+    }
+
+    .myorders>.row {
+        display: none;
+    }
+}

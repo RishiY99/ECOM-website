@@ -1,0 +1,23 @@
+<div class="row product-details" *ngIf="productdetils">
+    <div class="col-sm-6">
+        <img class="Product-image" [src]="productdetils.image">
+    </div>
+    <div class="col-sm-6">
+        <div class="details">
+            <h2>{{productdetils.name}}</h2>
+            <h3>Price: {{productdetils.price}}</h3>
+        </div>
+        <div>
+            Color:
+            <h5 [style.backgroundColor]="productdetils.color" class="product-color"></h5>
+        </div>
+        <h6>Description: {{productdetils.description}}</h6>
+        <button>Buy Now</button>
+        <button (click)=addtoCart() *ngIf='cartshow'> Add to Cart</button>
+        <button (click)=removeCart(productdetils.id) *ngIf='!cartshow'> Remove from Cart</button>
+        <div class="qunatity-group">
+            <button (click)="handleQunatity('min')">-</button>
+            <input type="number" value={{productquantity}}>
+            <button (click)="handleQunatity('max')">+</button>
+        </div>
+    </div>

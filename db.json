@@ -1,0 +1,155 @@
+{
+  "seller": [
+    {
+      "id": "e5f6",
+      "name": "as",
+      "email": "as",
+      "password": "as"
+    },
+    {
+      "id": "015b",
+      "name": "bf",
+      "email": "dfg",
+      "password": "dgf"
+    },
+    {
+      "id": "afc5",
+      "name": "ws",
+      "email": "as",
+      "password": "as"
+    },
+    {
+      "id": "ab45",
+      "name": "as",
+      "email": "as",
+      "password": ""
+    },
+    {
+      "id": "e305",
+      "name": "gy",
+      "email": "yhyh",
+      "password": "yhy"
+    },
+    {
+      "id": "f99e",
+      "name": "Rushi",
+      "email": "Rushi",
+      "password": "123"
+    }
+  ],
+  "products": [
+    {
+      "name": "Iphone",
+      "price": "7000",
+      "quantity": "1",
+      "color": "Black",
+      "description": "ok",
+      "image": "https://tse4.mm.bing.net/th/id/OIP.iMrhNuHwZvMBUzrZjsH7fQHaHa?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "id": "3f26"
+    },
+    {
+      "id": "b469",
+      "name": "Laptop",
+      "price": "54000",
+      "quantity": "1",
+      "color": "green",
+      "description": "ok",
+      "image": "https://cdn.mos.cms.futurecdn.net/gnG2Z6pK7CTBJmw4pRUy8i.jpg"
+    },
+    {
+      "name": "google pixel",
+      "price": "46000",
+      "quantity": "1",
+      "color": "pink",
+      "description": "ok",
+      "image": "https://scr.wfcdn.de/29323/Google-Pixel-10ProXL-CAD-Render-1741703015-0-0.jpg",
+      "id": "e682"
+    },
+    {
+      "id": "2bdd",
+      "name": "Oppo Reno",
+      "price": "400000",
+      "quantity": "1",
+      "color": "Yellow",
+      "description": "ok",
+      "image": "https://gagadget.com/media/uploads/oppo-reno-13-buttery-purple_XkVUG7Q.webp"
+    },
+    {
+      "id": "fec2",
+      "name": "iphone",
+      "price": "100000",
+      "quantity": "1",
+      "color": "black",
+      "description": "Great mobile",
+      "image": "https://images.pexels.com/photos/29020349/pexels-photo-29020349.jpeg?cs=srgb&dl=pexels-japy-29020349.jpg&fm=jpg"
+    }
+  ],
+  "Users": [
+    {
+      "id": "bf6f",
+      "name": "rushi",
+      "email": "ok",
+      "password": "ok"
+    },
+    {
+      "id": "9dfe",
+      "name": "ok",
+      "email": "ok",
+      "password": "ok"
+    },
+    {
+      "id": "01d4",
+      "name": "ok",
+      "email": "ok",
+      "password": "ok"
+    },
+    {
+      "id": "0a91",
+      "name": "rushi",
+      "email": "rushi@gmail.com",
+      "password": "123546"
+    },
+    {
+      "id": "435a",
+      "name": "rushi",
+      "email": "ok",
+      "password": "ok"
+    },
+    {
+      "id": "561d",
+      "name": "Rushi",
+      "email": "ok",
+      "password": "123123"
+    },
+    {
+      "id": "456d",
+      "name": "Rushi",
+      "email": "ok@gmail.com",
+      "password": "123456"
+    }
+  ],
+  "cart": [
+    {
+      "id": "54d6",
+      "name": "google pixel",
+      "price": "46000",
+      "quantity": 7,
+      "color": "yellow",
+      "description": "ok",
+      "image": "https://scr.wfcdn.de/29323/Google-Pixel-10ProXL-CAD-Render-1741703015-0-0.jpg",
+      "user_id": "456d",
+      "product_id": "e682"
+    }
+  ],
+  "orders": [
+    {
+      "id": "5cf8",
+      "name": "asdasd",
+      "email": "asd",
+      "phone": "asdd",
+      "address": "hgcgc",
+      "user_id": "456d",
+      "total": 230000
+    }
+  ]
+}

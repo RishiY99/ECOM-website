@@ -1,0 +1,23 @@
+/* App Layout - Sticky Footer */
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+app-header {
+    flex-shrink: 0;
+}
+
+router-outlet {
+    display: none;
+}
+
+router-outlet+* {
+    flex: 1 0 auto;
+}
+
+app-footer {
+    flex-shrink: 0;
+    margin-top: auto;
+}

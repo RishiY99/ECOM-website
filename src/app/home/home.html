@@ -1,0 +1,53 @@
+<div class="custom-carousel" *ngIf="popularProduct && popularProduct.length > 0">
+    <div class="carousel-container">
+        <button class="carousel-btn carousel-btn-left" (click)="previousSlide()">
+            <span>&#8249;</span>
+        </button>
+
+        <div class="carousel-slide">
+            <a routerLink="/details/{{popularProduct[currentSlide].id}}"><img [src]="popularProduct[currentSlide].image"
+                    [alt]="popularProduct[currentSlide].name"></a>
+            <div class="carousel-caption">
+                <h3>{{popularProduct[currentSlide].name}}</h3>
+                <p>{{popularProduct[currentSlide].description}}</p>
+                <p class="price">${{popularProduct[currentSlide].price}}</p>
+            </div>
+        </div>
+
+        <button class="carousel-btn carousel-btn-right" (click)="nextSlide()">
+            <span>&#8250;</span>
+        </button>
+    </div>
+
+    <div class="carousel-indicators">
+        <span *ngFor="let product of popularProduct; let i = index" class="indicator"
+            [class.active]="i === currentSlide" (click)="goToSlide(i)"></span>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<div class="product-list-wrapeer">
+    <h1>Trendy Product</h1>
+    <div class="row">
+        <div *ngFor="let item of trendyproduct" class="col-sm-3">
+            <div class="product">
+                <img class="product-item" src={{item.image}} alt="">
+
+                <div class="product-detils">
+                    <h6 class="name-head">{{item.name}}</h6>
+                    <div class="product-price">
+                        <h6>Rs.{{item.price}}</h6>
+                    </div>
+                    <div class="product-color">
+                        <h6>Color: {{item.color}}</h6>
+                    </div>
+                    <div class="product-footer">
+                        <a routerLink="/details/{{item.id}}"> View details</a>
+                        <a href=""> Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

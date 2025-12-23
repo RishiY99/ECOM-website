@@ -1,0 +1,155 @@
+.cart-page {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    padding: 0 20px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cart-page h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+}
+
+.details {
+    background: #fff;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#details img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#details ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+#details ul li {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #333;
+}
+
+#details ul li span {
+    font-weight: 500;
+    color: #555;
+}
+
+#details ul li button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+#details ul li button:hover {
+    background-color: #c82333;
+}
+
+.button:hover {
+    background-color: #c82333;
+}
+
+.summary {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 30px;
+}
+
+.summary h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.summary ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.summary ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 1rem;
+    color: #555;
+}
+
+.summary ul li:last-child {
+    border-bottom: none;
+    border-top: 2px solid #333;
+    margin-top: 15px;
+    padding-top: 15px;
+    font-weight: 700;
+    color: #333;
+}
+
+.summary ul li h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 700;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cart-page h1 {
+        font-size: 2rem;
+    }
+
+    #details ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #details ul li {
+        width: 100%;
+    }
+
+    .summary {
+        margin-top: 30px;
+    }
+}
