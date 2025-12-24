@@ -3,16 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ProductServies } from '../../services/product-servies';
 import { cart, product } from '../../services/types';
-// ============================================================================
-// IMPORTS FOR UNSUBSCRIBE PATTERN
-// ============================================================================
 import { Subject } from 'rxjs';
-// Subject: Used as "kill switch" for subscriptions
-
 import { takeUntil } from 'rxjs/operators';
-// takeUntil: RxJS operator that auto-unsubscribes when Subject emits
-// IMPORTANT: takeUntil comes from 'rxjs/operators', NOT 'rxjs'
-// ============================================================================
 
 @Component({
   selector: 'app-product-detail',
@@ -27,6 +19,7 @@ export class ProductDetail implements OnDestroy {
   cartshow: boolean = true
   cartitemNumber: undefined | product
   private destroy$ = new Subject<void>();
+
   constructor(private activeroute: ActivatedRoute, private product: ProductServies, private crf: ChangeDetectorRef) { }
 
   ngOnInit(): void {
@@ -64,7 +57,6 @@ export class ProductDetail implements OnDestroy {
         }
       })
     }
-
   }
 
   handleQunatity(type: string) {
@@ -93,7 +85,6 @@ export class ProductDetail implements OnDestroy {
         delete data.id
         this.product.signupcart(data).pipe(takeUntil(this.destroy$)).subscribe((res) => {
           if (res) {
-            // alert("added to cart")
             this.product.getcartlist(user_id);
             this.cartshow = false
           }
@@ -109,7 +100,6 @@ export class ProductDetail implements OnDestroy {
       this.product.removecartitem(id)
       this.cartshow = true
     } else {
-      console.warn(this.cartitemNumber?.id)
       this.cartitemNumber && this.product.removefromcart(this.cartitemNumber.id).pipe(takeUntil(this.destroy$)).subscribe((res) => {
         if (res) {
           this.product.getcartlist(user_id)
@@ -122,7 +112,5 @@ export class ProductDetail implements OnDestroy {
   ngOnDestroy(): void {
     this.destroy$.next()
     this.destroy$.complete()
-
   }
-
 }

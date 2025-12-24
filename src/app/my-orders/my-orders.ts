@@ -2,13 +2,8 @@ import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import { order } from '../../services/types';
 import { ProductServies } from '../../services/product-servies';
 import { CommonModule } from '@angular/common';
-// ============================================================================
-// IMPORTS FOR UNSUBSCRIBE PATTERN
-// ============================================================================
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-// takeUntil must come from 'rxjs/operators', not 'rxjs'
-// ============================================================================
 
 @Component({
   selector: 'app-my-orders',
@@ -26,8 +21,8 @@ export class MyOrders implements OnDestroy {
   ngOnInit(): void {
     this.getoffers()
     this.crf.detectChanges()
-
   }
+
   deleteorder(id: string) {
     this.product.deletinprocesorder(id).pipe(takeUntil(this.destroy$)).subscribe((res) => {
       if (res) {
@@ -43,7 +38,6 @@ export class MyOrders implements OnDestroy {
         this.crf.detectChanges()
       }
     })
-
   }
 
   ngOnDestroy(): void {

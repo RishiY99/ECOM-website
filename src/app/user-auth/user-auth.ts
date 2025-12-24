@@ -14,12 +14,13 @@ import { ProductServies } from '../../services/product-servies';
 export class UserAuth {
   userstate: boolean = true
   invaliduser: undefined | string
-  constructor(private user: UserServices, private crf: ChangeDetectorRef, private product: ProductServies) { }
 
+  constructor(private user: UserServices, private crf: ChangeDetectorRef, private product: ProductServies) { }
 
   usersignUp(value: SignUpData) {
     this.user.createuser(value)
   }
+
   openLogin() {
     this.userstate = true
   }
@@ -27,7 +28,6 @@ export class UserAuth {
   opensignup() {
     this.userstate = false
   }
-
 
   userlogin(value: SignUpData) {
     this.user.userlogin(value)
@@ -40,7 +40,6 @@ export class UserAuth {
       }
     })
   }
-
 
   localcarttoonlinecart() {
     let user = localStorage.getItem("user")
@@ -58,7 +57,6 @@ export class UserAuth {
         delete itemcart.id;
         setTimeout(() => {
           this.product.signupcart(itemcart).subscribe(() => {
-            console.warn("done")
           })
           if (cartdata.length === index + 1) {
             localStorage.removeItem("cart")
@@ -71,5 +69,3 @@ export class UserAuth {
     }, 2000)
   }
 }
-
-

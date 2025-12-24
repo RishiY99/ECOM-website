@@ -4,7 +4,6 @@ import { ProductServies } from '../../services/product-servies';
 import { product } from '../../services/types';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-seller-add-product',
   imports: [FormsModule],
@@ -13,13 +12,13 @@ import { Router } from '@angular/router';
 })
 export class SellerAddProduct {
   addproductessge: string | undefined
+
   constructor(private product: ProductServies, private router: Router) {
 
   }
 
   submit(data: product) {
     this.product.SellerAddProduct(data).subscribe((data) => {
-      console.warn(data)
       if (data) {
         this.addproductessge = "Product added successfully"
       }

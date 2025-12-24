@@ -13,11 +13,11 @@ import { CommonModule } from '@angular/common';
 export class Search {
   searchresult: undefined | product[]
   NOsearchresult: string | undefined
+
   constructor(private activeroute: ActivatedRoute, private product: ProductServies, private crf: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     let query = this.activeroute.snapshot.paramMap.get('query')
-    console.warn(query)
     if (query) {
       this.product.serachProducts(query).subscribe((res) => {
         this.searchresult = res
@@ -26,5 +26,4 @@ export class Search {
       this.NOsearchresult = "NO result Found"
     }
   }
-
 }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductServies } from '../../services/product-servies';
 import { cart, priceSummary } from '../../services/types';
 import { Router, RouterLink } from '@angular/router';
+
 @Component({
   selector: 'app-cart-list',
   imports: [CommonModule, RouterLink],
@@ -19,6 +20,7 @@ export class CartList {
     discount: 0,
     total: 0
   }
+
   constructor(private product: ProductServies, private crf: ChangeDetectorRef, private router: Router) { }
 
   ngOnInit(): void {
@@ -26,14 +28,13 @@ export class CartList {
   }
 
   removeitems(id: string | undefined) {
-    if (!id) return; // Guard clause: exit if id is undefined
+    if (!id) return;
     this.product.removefromcart(id).subscribe((res) => {
       if (res) {
         this.opeingfunction()
       }
     })
   }
-
 
   opeingfunction() {
     this.product.cartlist().subscribe((res) => {
@@ -50,7 +51,6 @@ export class CartList {
       this.summary.discount = price / 10;
       this.summary.total = price + this.summary.delivery + this.summary.tax - this.summary.discount
 
-
       this.crf.detectChanges()
       if (!this.cartitmes) {
         this.router.navigate(['/'])
@@ -60,6 +60,5 @@ export class CartList {
 
   tocheckOut() {
     this.router.navigate(['/checkout'])
-
   }
 }

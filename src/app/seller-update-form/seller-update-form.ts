@@ -17,16 +17,12 @@ export class SellerUpdateForm {
 
   constructor(private route: ActivatedRoute, private product: ProductServies, private cdr: ChangeDetectorRef, private router: Router) { }
 
-
   ngOnInit(): void {
     let productId = this.route.snapshot.paramMap.get('id');
-    console.warn(productId)
     productId && this.product.productupdate(productId).subscribe((res) => {
-      console.warn(res)
       this.Productdata = res
       this.cdr.detectChanges()
     })
-
   }
 
   submit(product: product) {
@@ -35,7 +31,6 @@ export class SellerUpdateForm {
     }
 
     this.product.changedetected(product).subscribe((res) => {
-      console.warn(res)
       if (res) {
         this.changeconfirmation = "Product Updated"
       }
@@ -45,7 +40,5 @@ export class SellerUpdateForm {
 
     this.changeconfirmation = undefined,
       this.router.navigate(['/seller-home'])
-
   }
-
 }

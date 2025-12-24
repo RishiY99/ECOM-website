@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 import { RouterLink } from '@angular/router';
+
 @Component({
   selector: 'app-seller-home',
   imports: [CommonModule, FontAwesomeModule, RouterLink],
@@ -16,6 +17,7 @@ export class SellerHome implements OnInit {
   deletionconfirmation: string | undefined
   fatrash = faTrash
   pen = faPen
+
   constructor(private product: ProductServies, private cdr: ChangeDetectorRef) { }
 
   listitem() {
@@ -23,13 +25,10 @@ export class SellerHome implements OnInit {
       next: (res: any) => {
         if (res) {
           this.productList = res;
-          console.log('Products loaded:', res);
-          // Manually trigger change detection to update the UI
           this.cdr.detectChanges();
         }
       },
       error: (error) => {
-        console.error('Error loading products:', error);
       }
     });
   }
@@ -49,5 +48,4 @@ export class SellerHome implements OnInit {
     }
     );
   }
-
 }

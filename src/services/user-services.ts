@@ -2,12 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { SignUpData, LoginData } from './types';
 import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root',
 })
 export class UserServices {
 
   userlogininvalid = new EventEmitter<boolean>
+
   constructor(private http: HttpClient, private route: Router) { }
 
   createuser(data: SignUpData) {
@@ -29,7 +31,6 @@ export class UserServices {
   userlogin(data: LoginData) {
     this.http.get<SignUpData[]>(`http://localhost:3000/Users?email=${data.email}&password=${data.password}`, { observe: 'response' })
       .subscribe((res) => {
-        console.log(res)
         if (res && res.body && res.body.length > 0) {
           localStorage.setItem("user", JSON.stringify(res.body[0]))
           this.userlogininvalid.emit(false)
@@ -40,9 +41,4 @@ export class UserServices {
         }
       })
   }
-
-
-
-
-
 }

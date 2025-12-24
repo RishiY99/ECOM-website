@@ -19,9 +19,7 @@ export class Home {
 
   ngOnInit(): void {
     this.product.popularproduct().subscribe((res: any) => {
-      console.warn(res)
       this.popularProduct = res;
-      // this.crf.detectChanges();
       setInterval(() => {
         this.nextSlide()
       }, 2000)
@@ -50,5 +48,4 @@ export class Home {
   goToSlide(index: number): void {
     this.currentSlide = index;
   }
-
 }

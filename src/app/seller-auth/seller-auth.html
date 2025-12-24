@@ -1,4 +1,3 @@
-<!-- Sign Up Form -->
 <div *ngIf="!showlogin">
   <h2 class="Signup">Seller Sign Up</h2>
   <form [formGroup]="signupform" (ngSubmit)="signUp()">
@@ -10,11 +9,9 @@
   </form>
 </div>
 
-<!-- Login Form -->
 <div *ngIf="showlogin">
   <h2 class="Signup">Seller Login</h2>
 
-  <!-- Error Message Display -->
   <div *ngIf="authError" class="error-message">
     {{ authError }}
   </div>
